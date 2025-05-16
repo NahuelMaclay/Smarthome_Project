@@ -2,13 +2,15 @@
 
 # main.py
 
-
 from auth import registrar_usuario, iniciar_sesion
-from utils import monstras_menu_principal
+from utils import mostrar_menu_principal
+
+
+
 
 
 def main():
-    while true:
+    while True:
         opcion = mostrar_menu_principal()
 
         if opcion == "1":
@@ -28,21 +30,19 @@ if __name__ == "__main__":
 
 # main.py
 
-from auth import registrar_usuario, iniciar_sesion
-from utils import mostrar_menu_principal, mostrar_menu_usuario
-from devices import agregar_dispositivo, listar_dispositivos, buscar_dispositivo, eliminar_dispositivo
 
-def main():
-    while True:
-        opcion = mostrar_menu_principal()
 
-        if opcion == "1":
-            registrar_usuario()
-        elif opcion == "2":
-            usuario = iniciar_sesion()
-            if usuario:
-                while True:
-                    op = mostrar_menu_usuario()
-                    if op == "1":
-                        agregar_dispositivo(usuario)
+# def main():
+#     while True:
+#         opcion = mostrar_menu_principal()
+
+#         if opcion == "1":
+#             registrar_usuario()
+#         elif opcion == "2":
+#             usuario = iniciar_sesion()
+#             if usuario:
+#                 while True:
+#                     op = mostrar_menu_usuario()
+#                     if op == "1":
+#                         agregar_dispositivo(usuario)
 
