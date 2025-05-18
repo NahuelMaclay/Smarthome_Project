@@ -59,7 +59,7 @@ def eliminar_dispositivo():
 
 def activar_automatizacion_luces_del_patio():
     hora=datetime.datetime.now().strftime("%H")
-    if(int(hora)>=20 and int(hora)<=6):
+    if(int(hora)>=20 or int(hora)<=6):
         for dispositivo in usuario['dispositivos']:
             if dispositivo['tipo'] == "Iluminación" and dispositivo['ubicacion'] == "Patio":
                 dispositivo['estado'] = True
