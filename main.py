@@ -1,6 +1,6 @@
 
 
-from utils import listar_dispositivos,mostrar_menu_principal_de_dispositivo, nuevo_dispositivo,buscar_dispositivo,eliminar_dispositivo
+from utils import listar_dispositivos,mostrar_menu_principal_de_dispositivo, nuevo_dispositivo,buscar_dispositivo,eliminar_dispositivo, activar_automatizacion_luces_del_patio
 import datetime
 
 #menu principal
@@ -13,29 +13,25 @@ import datetime
 #
 def main():
     print(f"----BIENVENIDO A SMART HOME SOLUTIONS----{datetime.datetime.now().strftime("%H:%M")}")
-    hora=datetime.datetime.now().strftime("%H")
-    if(int(hora)>=20):
-        print("AUTOMATIZACION DE LUCES ACTIVADA")
-    elif(int(hora)<=20):
-        print("AUTOMATIZACION DE LUCES DESACTIVADA")
+    activar_automatizacion_luces_del_patio()
     while True:
        
        mostrar_menu_principal_de_dispositivo()
        opcion = input("Seleccione una opción: ")
        if(opcion=="1"):
-        print("Elegiste opcion 1 . NUEVO DISPOSITIVO")
+        print("Elegiste opcion 1 . ✅NUEVO DISPOSITIVO")
         nuevo_dispositivo()
        elif (opcion=="2"):
-        print("Elegiste opcion 2. LISTAR DISPOSITIVOS")
+        print("Elegiste opcion 2 . ✅LISTAR DISPOSITIVOS")
         listar_dispositivos()
        elif (opcion=="3"):
-        print("Elegiste opcion 3 . BUSCAR DISPOSITIVO")
+        print("Elegiste opcion 3 . ✅BUSCAR DISPOSITIVO")
         buscar_dispositivo()
        elif (opcion=="4"):
-        print("Elegiste opcion 4 . ELIMINAR DISPOSITIVO")
+        print("Elegiste opcion 4 . ❌ELIMINAR DISPOSITIVO")
         eliminar_dispositivo()
        elif (opcion=="5"):
-        print("GRACIAS VUELVA PRONTO!!")
+        print("✨¡GRACIAS VUELVA PRONTO!✨")
         break
        
 
