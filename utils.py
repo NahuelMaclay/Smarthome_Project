@@ -1,5 +1,6 @@
 
 from states import usuario
+import datetime
 
 
 
@@ -55,3 +56,22 @@ def eliminar_dispositivo():
             print(f"Dispositivo {nombre} eliminado con éxito.")
         else:
             print(f"Dispositivo {nombre} no encontrado.")
+
+def activar_automatizacion_luces_del_patio():
+    hora=datetime.datetime.now().strftime("%H")
+    if(int(hora)>=20 and int(hora)<=6):
+        for dispositivo in usuario['dispositivos']:
+            if dispositivo['tipo'] == "Iluminación" and dispositivo['ubicacion'] == "Patio":
+                dispositivo['estado'] = True
+                print(f"Dispositivo {dispositivo['nombre']},estado actual {dispositivo['estado']} activado")
+            else:
+                print(f'no se encontraron dispositivos de iluminacion en el patio')
+        
+    else:
+        for dispositivo in usuario['dispositivos']:
+            if dispositivo['tipo'] and dispositivo['ubicacion'] == "Patio":
+                dispositivo['estado'] = False
+                print(f"Dispositivo {dispositivo['nombre']}, estado actual {dispositivo['estado']} desactivado")
+            else:
+                print(f'no se encontraron dispositivos de iluminacion en el patio')
+        
