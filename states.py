@@ -7,10 +7,8 @@ usuario={
         'id':1,
         'nombre': "Luz",
         'tipo': "Iluminación",
-        'ubicacion': "Salón",
+        'ubicacion': "Patio",
         'estado': False,
-
-
     }
     ],
 
