@@ -1,38 +1,43 @@
 
-
-from utils import listar_dispositivos,mostrar_menu_principal_de_dispositivo, nuevo_dispositivo,buscar_dispositivo,eliminar_dispositivo, activar_automatizacion_luces_del_patio
+from dispositivos import buscar_dispositivo, eliminar_dispositivo, listar_dispositivos, nuevo_dispositivo
+from menu import mostrar_opciones_principal_de_app
+from automatizaciones import activar_automatizacion_luces_del_patio
 import datetime
-
-#menu principal
-#1 nuevo dispositivo 
-#2 listar dispositivos
-#3 buscar dispositivo
-# 0 volver al menu prinpal
-#
-#
-#
+from auth import login, logout, register
+from states import states
 def main():
     print(f"----BIENVENIDO A SMART HOME SOLUTIONS----{datetime.datetime.now().strftime("%H:%M")}")
     activar_automatizacion_luces_del_patio()
+    # print("1. Registrarse")
+    # print("2. Iniciar sesión")
+    # print("3. Registrar nuevo dispositivo")
+    # print("4. Listar dispositivos")
+    # print("5. Buscar dispositivo")
+    # print("6. ELiminar un dispositivo")
+    # print("0. Salir")
     while True:
-       
-       mostrar_menu_principal_de_dispositivo()
-       opcion = input("Seleccione una opción: ")
-       if(opcion=="1"):
-        print("Elegiste opcion 1 . ✅NUEVO DISPOSITIVO")
-        nuevo_dispositivo()
-       elif (opcion=="2"):
-        print("Elegiste opcion 2 . ✅LISTAR DISPOSITIVOS")
-        listar_dispositivos()
-       elif (opcion=="3"):
-        print("Elegiste opcion 3 . ✅BUSCAR DISPOSITIVO")
-        buscar_dispositivo()
-       elif (opcion=="4"):
-        print("Elegiste opcion 4 . ❌ELIMINAR DISPOSITIVO")
-        eliminar_dispositivo()
-       elif (opcion=="5"):
-        print("✨¡GRACIAS VUELVA PRONTO!✨")
-        break
+        mostrar_opciones_principal_de_app()
+        opcion=input('Ingrese una opcion: ')
+        if opcion == '1':
+            register()
+        elif(opcion == '2'):
+            login()
+        if (states['is_auth']):
+            if(opcion == '3'):
+                nuevo_dispositivo()
+            elif(opcion == '4'):
+                listar_dispositivos()
+            elif(opcion == '5'):
+                buscar_dispositivo()
+            elif(opcion == '6'):
+                eliminar_dispositivo()
+            elif(opcion == '0'):
+             print("Gracias vuelva pronto")
+             break
+        elif(opcion == '0'):
+             print("Gracias vuelva pronto")
+             logout()
+             break
        
 
 if __name__ == "__main__":
