@@ -1,13 +1,13 @@
 
 from dispositivos import buscar_dispositivo, eliminar_dispositivo, listar_dispositivos, nuevo_dispositivo
-from menu import mostrar_opciones_principal_de_app
-from automatizaciones import activar_automatizacion_luces_del_patio
+from menu import menu_automatizaciones, mostrar_opciones_principal_de_app
+from automatizaciones import consultar_automatizaciones_activas, iniciar_automatizacion_aspiradora, iniciar_automatizacion_luces_del_patio
 import datetime
-from auth import login, logout, register
+from auth import cambiar_rol, consultar_perfil, listar_usuarios, login, logout, register
 from states import states
 def main():
     print(f"----BIENVENIDO A SMART HOME SOLUTIONS----{datetime.datetime.now().strftime("%H:%M")}")
-    activar_automatizacion_luces_del_patio()
+    
     #  mostrar_opciones_principal_de_app()
     # if(states['is_auth']==False):
     #     print("1. Registrarse")
@@ -19,6 +19,9 @@ def main():
     #     print("6. ELiminar un dispositivo")
     # print("0. Salir")
     while True:
+        iniciar_automatizacion_luces_del_patio()
+        iniciar_automatizacion_aspiradora()
+        
         mostrar_opciones_principal_de_app()
         opcion=input('Ingrese una opcion: ')
         if opcion == '1':
@@ -34,6 +37,18 @@ def main():
                 buscar_dispositivo()
             elif(opcion == '6'):
                 eliminar_dispositivo()
+            elif(opcion == '7'):
+                logout()
+            elif(opcion=="8"):
+                consultar_perfil()
+            elif(opcion=="9"):
+                cambiar_rol()
+            elif(opcion=="10"):
+                menu_automatizaciones()
+            elif(opcion=="11"):
+                listar_usuarios()
+            elif(opcion=="12"):
+                consultar_automatizaciones_activas()
             elif(opcion == '0'):
              print("Gracias vuelva pronto")
              break
